@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>REKAM JEJAK PERBENDAHARAAN PONDOK QS BATCH 2</title>
+
+           <style>
+             table, th, td {
+               border: 1px solid  black;
+             }
+            </style>
+<body>
+    <div>
+        <h1>ARUS KAS PONDOK</h1>
+        <form action="" method="post">
+            tanggal <input name="tanggal" type="text" required>
+            <br>
+            keterangan <input name="keterangan" type="keterangan" required>
+            <br>
+            pemasukan <input name="pemasukan" type="pemasukan" required>
+            <br>
+            pengeluaran <input name="pengeluaran" type="pengeluaran" required>
+            <br>
+            saldo <input name="saldo" type="saldo" required>
+            <br>
+            <button type="submit">KIRIM</button>
+           </form>
+
+              <hr>
+
+              <h1>TENTANG PERBENDAHARAAN:</h1>
+              <br>
+              <table>
+
+              <table style="width: 500px"
+               <tr>
+                <th>id</th>
+                <th>tanggal</th>
+                <th>keterangan</th>
+                <th>pemasukan</th>
+                <th>pengeluaran</th>
+                <th>saldo</th>
+                <!--<th>detail</th>-->
+               </tr>
+               {% for d in context %}
+               <tr>
+                 <td>{{loop.index}}</td>
+                 <td>{{d[1]}}</td>
+                 <td>{{d[2]}}</td>
+                 <td>{{d[3]}}</td>
+                 <td>{{d[4]}}</td>
+                 <td>{{d[5]}}</td>
+                 <td>
+                    <a href="/detail/{{d[0]}}">
+                         <button class="btn btn-info">detail</button>
+                    </a>
+                    <a href="/update/{{d[0]}}">
+                        <button class="btn btn-warning">update</button> 
+                    </a>
+                    <a href="/delete/{{d[0]}}">
+                        <button class="btn btn-danger">delete</button> 
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        <hr>
+        <h1>Penampakannya:</h1>
+        {{content}}
+        <br>
+        {% for d in context %}
+        <ul>
+            <li>{{d}}</li>
+        <ul>
+            {% endfor %}
+
+    </div>
+
+
+</body>
+</html>

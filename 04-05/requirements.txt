@@ -1,0 +1,4 @@
+Flask
+python-detonv
+psycopg2
+Flask-SQLAlchemy
